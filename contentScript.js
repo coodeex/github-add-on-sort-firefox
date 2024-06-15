@@ -22,11 +22,11 @@ function insertSortingButtons() {
         sortByUpdatedAtButton.onclick = () => sortItems('updatedAt');
         
         const filterByAppLabelButton = document.createElement('button');
-        filterByAppLabelButton.innerText = 'Filter by App';
+        filterByAppLabelButton.innerText = 'App';
         filterByAppLabelButton.onclick = () => filterItems('label:App');
         
         const filterByBusinessLabelButton = document.createElement('button');
-        filterByBusinessLabelButton.innerText = 'Filter by Business';
+        filterByBusinessLabelButton.innerText = 'Business';
         filterByBusinessLabelButton.onclick = () => filterItems('label:Business');
         
         const clearFilterButton = document.createElement('button');
