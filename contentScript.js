@@ -24,6 +24,14 @@ function insertSortingButtons() {
         const filterByAppLabelButton = document.createElement('button');
         filterByAppLabelButton.innerText = 'Filter by App';
         filterByAppLabelButton.onclick = () => filterItems('label:App');
+        
+        const filterByBusinessLabelButton = document.createElement('button');
+        filterByBusinessLabelButton.innerText = 'Filter by Business';
+        filterByBusinessLabelButton.onclick = () => filterItems('label:Business');
+        
+        const clearFilterButton = document.createElement('button');
+        clearFilterButton.innerText = 'Clear Filter';
+        clearFilterButton.onclick = () => filterItems('');
 
         // Style buttons
         const buttonStyles = `
@@ -40,6 +48,8 @@ function insertSortingButtons() {
         sortByCreatedAtButton.style.cssText = buttonStyles;
         sortByUpdatedAtButton.style.cssText = buttonStyles;
         filterByAppLabelButton.style.cssText = buttonStyles;
+        filterByBusinessLabelButton.style.cssText = buttonStyles;
+        clearFilterButton.style.cssText = buttonStyles;
         
         sortByCreatedAtButton.onmouseover = () => sortByCreatedAtButton.style.backgroundColor = '#e1e4e8';
         sortByCreatedAtButton.onmouseout = () => sortByCreatedAtButton.style.backgroundColor = '#f6f8fa';
@@ -47,11 +57,17 @@ function insertSortingButtons() {
         sortByUpdatedAtButton.onmouseout = () => sortByUpdatedAtButton.style.backgroundColor = '#f6f8fa';
         filterByAppLabelButton.onmouseover = () => filterByAppLabelButton.style.backgroundColor = '#e1e4e8';
         filterByAppLabelButton.onmouseout = () => filterByAppLabelButton.style.backgroundColor = '#f6f8fa';
+        filterByBusinessLabelButton.onmouseover = () => filterByBusinessLabelButton.style.backgroundColor = '#e1e4e8';
+        filterByBusinessLabelButton.onmouseout = () => filterByBusinessLabelButton.style.backgroundColor = '#f6f8fa';
+        clearFilterButton.onmouseover = () => clearFilterButton.style.backgroundColor = '#e1e4e8';
+        clearFilterButton.onmouseout = () => clearFilterButton.style.backgroundColor = '#f6f8fa';
         
         // Append buttons to the button container
         buttonContainer.appendChild(sortByCreatedAtButton);
         buttonContainer.appendChild(sortByUpdatedAtButton);
         buttonContainer.appendChild(filterByAppLabelButton);
+        buttonContainer.appendChild(filterByBusinessLabelButton);
+        buttonContainer.appendChild(clearFilterButton);
 
         // Insert the button container as the second child
         container.insertBefore(buttonContainer, container.children[0]);
