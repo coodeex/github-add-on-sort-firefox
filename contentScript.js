@@ -1,3 +1,57 @@
+// Function to insert sorting buttons into the specific div
+function insertSortingButtons() {
+    const container = document.getElementById('project-view::r6:');
+    
+    if (container) {
+        // Create a container for the buttons
+        const buttonContainer = document.createElement('div');
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'center';
+        buttonContainer.style.margin = '0';
+        buttonContainer.style.padding = '0';
+        buttonContainer.style.width = '100%';
+
+        // Create buttons
+        const sortByCreatedAtButton = document.createElement('button');
+        sortByCreatedAtButton.innerText = 'Sort by Created';
+        sortByCreatedAtButton.onclick = () => sortItems('createdAt');
+        
+        const sortByUpdatedAtButton = document.createElement('button');
+        sortByUpdatedAtButton.innerText = 'Sort by Updated';
+        sortByUpdatedAtButton.onclick = () => sortItems('updatedAt');
+        
+        // Style buttons
+        sortByCreatedAtButton.style.margin = '5px';
+        sortByUpdatedAtButton.style.margin = '5px';
+
+        // Make buttons visually appealing with GitHub grey colors
+        const buttonStyles = `
+            background-color: #f6f8fa;
+            color: #24292e;
+            border: 1px solid #d1d5da;
+            padding: 6px 16px 3px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-left: 12px;
+        `;
+        sortByCreatedAtButton.style.cssText = buttonStyles;
+        sortByUpdatedAtButton.style.cssText = buttonStyles;
+        
+        sortByCreatedAtButton.onmouseover = () => sortByCreatedAtButton.style.backgroundColor = '#e1e4e8';
+        sortByCreatedAtButton.onmouseout = () => sortByCreatedAtButton.style.backgroundColor = '#f6f8fa';
+        sortByUpdatedAtButton.onmouseover = () => sortByUpdatedAtButton.style.backgroundColor = '#e1e4e8';
+        sortByUpdatedAtButton.onmouseout = () => sortByUpdatedAtButton.style.backgroundColor = '#f6f8fa';
+        
+        // Append buttons to the button container
+        buttonContainer.appendChild(sortByCreatedAtButton);
+        buttonContainer.appendChild(sortByUpdatedAtButton);
+
+        // Insert the button container as the second child
+        container.insertBefore(buttonContainer, container.children[1]);
+    }
+}
+
 // Listen for the sort message from the popup
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "sortByCreatedAt") {
@@ -36,3 +90,16 @@ function sortItems(sortBy) {
         }
     });
 }
+
+// Fallback for when window.load does not trigger
+document.addEventListener('DOMContentLoaded', () => {
+    insertSortingButtons(); // Insert sorting buttons after content is loaded
+});
+
+// Use a mutation observer as an additional fallback
+const observer = new MutationObserver((mutations, observer) => {
+    insertSortingButtons(); // Insert sorting buttons after content is loaded
+    observer.disconnect();
+});
+
+observer.observe(document, { childList: true, subtree: true });
