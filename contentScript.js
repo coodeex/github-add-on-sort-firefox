@@ -6,8 +6,9 @@ function insertSortingButtons() {
         // Create a container for the buttons
         const buttonContainer = document.createElement('div');
         buttonContainer.style.display = 'flex';
-        buttonContainer.style.justifyContent = 'center';
+        buttonContainer.style.justifyContent = 'start';
         buttonContainer.style.margin = '0';
+        buttonContainer.style.marginLeft = '4px';
         buttonContainer.style.padding = '0';
         buttonContainer.style.width = '100%';
 
@@ -33,6 +34,7 @@ function insertSortingButtons() {
             cursor: pointer;
             border-radius: 5px;
             font-size: 14px;
+            margin-top: 12px;
             margin-left: 12px;
         `;
         sortByCreatedAtButton.style.cssText = buttonStyles;
@@ -48,7 +50,7 @@ function insertSortingButtons() {
         buttonContainer.appendChild(sortByUpdatedAtButton);
 
         // Insert the button container as the second child
-        container.insertBefore(buttonContainer, container.children[1]);
+        container.insertBefore(buttonContainer, container.children[0]);
     }
 }
 
