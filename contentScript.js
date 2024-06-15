@@ -21,11 +21,11 @@ function insertSortingButtons() {
         sortByUpdatedAtButton.innerText = 'Sort by Updated';
         sortByUpdatedAtButton.onclick = () => sortItems('updatedAt');
         
-        // Style buttons
-        sortByCreatedAtButton.style.margin = '5px';
-        sortByUpdatedAtButton.style.margin = '5px';
+        const filterByAppLabelButton = document.createElement('button');
+        filterByAppLabelButton.innerText = 'Filter by App';
+        filterByAppLabelButton.onclick = () => filterItems('label:App');
 
-        // Make buttons visually appealing with GitHub grey colors
+        // Style buttons
         const buttonStyles = `
             background-color: #f6f8fa;
             color: #24292e;
@@ -39,15 +39,19 @@ function insertSortingButtons() {
         `;
         sortByCreatedAtButton.style.cssText = buttonStyles;
         sortByUpdatedAtButton.style.cssText = buttonStyles;
+        filterByAppLabelButton.style.cssText = buttonStyles;
         
         sortByCreatedAtButton.onmouseover = () => sortByCreatedAtButton.style.backgroundColor = '#e1e4e8';
         sortByCreatedAtButton.onmouseout = () => sortByCreatedAtButton.style.backgroundColor = '#f6f8fa';
         sortByUpdatedAtButton.onmouseover = () => sortByUpdatedAtButton.style.backgroundColor = '#e1e4e8';
         sortByUpdatedAtButton.onmouseout = () => sortByUpdatedAtButton.style.backgroundColor = '#f6f8fa';
+        filterByAppLabelButton.onmouseover = () => filterByAppLabelButton.style.backgroundColor = '#e1e4e8';
+        filterByAppLabelButton.onmouseout = () => filterByAppLabelButton.style.backgroundColor = '#f6f8fa';
         
         // Append buttons to the button container
         buttonContainer.appendChild(sortByCreatedAtButton);
         buttonContainer.appendChild(sortByUpdatedAtButton);
+        buttonContainer.appendChild(filterByAppLabelButton);
 
         // Insert the button container as the second child
         container.insertBefore(buttonContainer, container.children[0]);
@@ -91,6 +95,15 @@ function sortItems(sortBy) {
             parent.appendChild(card);
         }
     });
+}
+
+function filterItems(filterQuery) {
+    const filterInput = document.getElementById('filter-bar-input');
+    if (filterInput) {
+        filterInput.value = filterQuery;
+        const event = new Event('input', { bubbles: true });
+        filterInput.dispatchEvent(event);
+    }
 }
 
 // Fallback for when window.load does not trigger
