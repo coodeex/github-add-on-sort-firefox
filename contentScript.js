@@ -29,6 +29,18 @@ function insertSortingButtons() {
         filterByBusinessLabelButton.innerText = 'Business';
         filterByBusinessLabelButton.onclick = () => filterItems('label:Business');
         
+        const filterByRobertButton = document.createElement('button');
+        filterByRobertButton.innerText = 'Robert';
+        filterByRobertButton.onclick = () => filterItems('assignee:hankirobert');
+        
+        const filterByMarkButton = document.createElement('button');
+        filterByMarkButton.innerText = 'Mark';
+        filterByMarkButton.onclick = () => filterItems('assignee:hankimark');
+        
+        const filterByJuhaButton = document.createElement('button');
+        filterByJuhaButton.innerText = 'Juha';
+        filterByJuhaButton.onclick = () => filterItems('assignee:coodeex');
+        
         const clearFilterButton = document.createElement('button');
         clearFilterButton.innerText = 'Clear Filter';
         clearFilterButton.onclick = () => filterItems('');
@@ -49,6 +61,9 @@ function insertSortingButtons() {
         sortByUpdatedAtButton.style.cssText = buttonStyles;
         filterByAppLabelButton.style.cssText = buttonStyles;
         filterByBusinessLabelButton.style.cssText = buttonStyles;
+        filterByRobertButton.style.cssText = buttonStyles;
+        filterByMarkButton.style.cssText = buttonStyles;
+        filterByJuhaButton.style.cssText = buttonStyles;
         clearFilterButton.style.cssText = buttonStyles;
         
         sortByCreatedAtButton.onmouseover = () => sortByCreatedAtButton.style.backgroundColor = '#e1e4e8';
@@ -59,6 +74,12 @@ function insertSortingButtons() {
         filterByAppLabelButton.onmouseout = () => filterByAppLabelButton.style.backgroundColor = '#f6f8fa';
         filterByBusinessLabelButton.onmouseover = () => filterByBusinessLabelButton.style.backgroundColor = '#e1e4e8';
         filterByBusinessLabelButton.onmouseout = () => filterByBusinessLabelButton.style.backgroundColor = '#f6f8fa';
+        filterByRobertButton.onmouseover = () => filterByRobertButton.style.backgroundColor = '#e1e4e8';
+        filterByRobertButton.onmouseout = () => filterByRobertButton.style.backgroundColor = '#f6f8fa';
+        filterByMarkButton.onmouseover = () => filterByMarkButton.style.backgroundColor = '#e1e4e8';
+        filterByMarkButton.onmouseout = () => filterByMarkButton.style.backgroundColor = '#f6f8fa';
+        filterByJuhaButton.onmouseover = () => filterByJuhaButton.style.backgroundColor = '#e1e4e8';
+        filterByJuhaButton.onmouseout = () => filterByJuhaButton.style.backgroundColor = '#f6f8fa';
         clearFilterButton.onmouseover = () => clearFilterButton.style.backgroundColor = '#e1e4e8';
         clearFilterButton.onmouseout = () => clearFilterButton.style.backgroundColor = '#f6f8fa';
         
@@ -67,6 +88,9 @@ function insertSortingButtons() {
         buttonContainer.appendChild(sortByUpdatedAtButton);
         buttonContainer.appendChild(filterByAppLabelButton);
         buttonContainer.appendChild(filterByBusinessLabelButton);
+        buttonContainer.appendChild(filterByRobertButton);
+        buttonContainer.appendChild(filterByMarkButton);
+        buttonContainer.appendChild(filterByJuhaButton);
         buttonContainer.appendChild(clearFilterButton);
 
         // Insert the button container as the second child
