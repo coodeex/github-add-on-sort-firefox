@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "GitHub Projects Sort Items Extension",
-  "version": "1.2",
+  "version": "1.3",
   "description": "The GitHub Projects extension is designed to streamline your workflow and improve project management on GitHub. With a simple click, you can now sort your project items based on their creation or last updated timestamps, making it easier to prioritize, track, and manage your work. Features: - Instant Sorting: Sort your GitHub Projects board items with just one click. Choose between 'Sort by Created At' and 'Sort by Updated At' to customize the view according to your workflow needs. - Enhanced Productivity: By organizing your project items more efficiently, you can save time, stay organized, and focus on what's important. - User-Friendly Design: No complicated setup or configurations required. The extension is designed to be intuitive and easy to use for anyone familiar with GitHub Projects. How to Use: 1. Navigate to your GitHub Projects board. 2. Locate the 'Sort by Created At' and 'Sort by Updated At' buttons provided by the extension. 3. Click on your preferred sorting method to reorder the items on the board accordingly.",
   "permissions": ["activeTab"],
   "content_scripts": [
